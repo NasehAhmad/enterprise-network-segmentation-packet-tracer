@@ -1,1 +1,76 @@
-
+! Sw-Sales - Sales Department Switch
+! Cisco Packet Tracer - Cisco 2960
+!
+hostname Sw-Sales
+no ip domain-lookup
+!
+! VLAN Configuration
+!
+vlan 20
+ name Sales
+!
+! Sales Access Ports
+!
+interface range FastEthernet0/1 - 24
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+! Trunk Uplink to R1
+!
+interface GigabitEthernet0/1
+ switchport trunk allowed vlan 20
+ switchport mode trunk
+!
+! Unused GigabitEthernet Port
+!
+interface GigabitEthernet0/2
+!
+! VLAN 1 SVI
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+! Spanning Tree
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+! Console and Remote Access
+!
+line console 0
+!
+line vty 0 4
+ login
+!
+line vty 5 15
+ login
+!
+! Network Information
+! Department: Sales
+! VLAN: 20
+! Network: 192.168.10.64/26
+! Default Gateway: 192.168.10.65 (R1)
+!
+! Connected Devices
+! Fa0/1 - Fa0/24: Sales access ports (only connected ports are active)
+! Gi0/1 - R1 GigabitEthernet0/1
+!
+! Security Audit
+! PortFast: Enabled on FastEthernet0/1-24
+! Port Security: Not configured
+! BPDU Guard: Not configured
+! Unused ports: Not administratively shutdown
+! SSH: Not configured
+! Local administrator: Not configured
+! Password encryption: Disabled
+! Console authentication: Not configured
+! VTY authentication: Not configured with a local password
+!
+! Verification Commands
+! show running-config
+! show vlan brief
+! show interfaces status
+! show interfaces trunk
+! show cdp neighbors
