@@ -17,7 +17,7 @@ The project focuses on network design, configuration, troubleshooting, segmentat
 
 ## Network Topology
 
-![Network Topology](screenshots/network-topology.png)
+![Network Topology](Screenshots/Network%20Topology.png)
 
 *The complete Packet Tracer topology.*
 
@@ -58,13 +58,13 @@ The project focuses on network design, configuration, troubleshooting, segmentat
 2. Configure automatic IP address allocation through DHCP.
 3. Enable communication between routers using OSPF.
 4. Restrict unauthorized communication between departments using ACLs.
-5. Design the network to support authorized access to a centralized Data Warehouse.
+5. Design the network to support authorized access to a centralized Data Warehouse (planned enhancement).
 
 ## Security Implementation
 
-The project includes departmental traffic isolation through ACLs.
+The project implements departmental traffic isolation through extended ACLs.
 
-Additional network hardening measures are documented as they are implemented and tested, including:
+Additional network hardening measures are planned enhancements and will be documented after implementation and testing:
 
 - SSH-based device management
 - Switch port security
@@ -81,9 +81,8 @@ Additional network hardening measures are documented as they are implemented and
 - [x] Two-router topology
 - [x] OSPF neighbor adjacency and route exchange
 - [x] Departmental isolation using ACLs
-- [X] Data Warehouse connectivity
 - [X] SSH-based network device management
-- [X] Complete security hardening and verification
+- [X] Additional security hardening and verification
 
 ## Testing and Verification
 
@@ -100,15 +99,13 @@ The following Cisco IOS commands are used to verify network operation:
 | `show access-lists` | Inspect ACL rules |
 | `show port-security` | Verify switch port security |
 
-Screenshots and test results are provided in the `screenshots/` and `documentation/` directories.
+Screenshots of the topology, DHCP bindings and OSPF neighbor status are provided in the `Screenshots/` directory.
 
 ## Repository Structure
 
 ```text
-├── packet-tracer/     # Packet Tracer project file
-├── screenshots/       # Topology and verification screenshots
-├── configs/           # Router and switch configurations
-├── documentation/     # Network design, IP plan and test results
+├── Screenshots/       # Topology and verification screenshots
+├── ciscoproject.pkt   # Cisco Packet Tracer project
 └── README.md          # Project overview and documentation
 ```
 
