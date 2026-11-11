@@ -13,7 +13,7 @@ This project simulates an enterprise network with four departments:
 
 Each department operates in a separate VLAN and IP subnet. Two Cisco 2911 routers provide routing between the departmental networks using OSPF.
 
-The project focuses on network design, configuration, troubleshooting, segmentation and basic network security.
+The project focuses on network design, configuration, troubleshooting, segmentation and network security.
 
 ## Network Topology
 
@@ -50,6 +50,9 @@ The project focuses on network design, configuration, troubleshooting, segmentat
 - DHCP configuration and automatic IP allocation
 - OSPF dynamic routing
 - Extended Access Control Lists (ACLs)
+- SSH-based device management
+- Switch port security
+- Spanning Tree security features
 - Cisco IOS command-line configuration
 
 ## Network Design Objectives
@@ -58,15 +61,16 @@ The project focuses on network design, configuration, troubleshooting, segmentat
 2. Configure automatic IP address allocation through DHCP.
 3. Enable communication between routers using OSPF.
 4. Restrict unauthorized communication between departments using ACLs.
-5. Design the network to support authorized access to a centralized Data Warehouse (planned enhancement).
+5. Implement secure network device management and switch security controls.
+6. Design the network to support authorized access to a centralized Data Warehouse as a planned enhancement.
 
 ## Security Implementation
 
 The project implements departmental traffic isolation through extended ACLs.
 
-Additional network hardening measures are planned enhancements and will be documented after implementation and testing:
+Additional security measures include:
 
-- SSH-based device management
+- SSH-based network device management
 - Switch port security
 - Disabling unused switch ports
 - Spanning Tree PortFast and BPDU Guard
@@ -81,8 +85,9 @@ Additional network hardening measures are planned enhancements and will be docum
 - [x] Two-router topology
 - [x] OSPF neighbor adjacency and route exchange
 - [x] Departmental isolation using ACLs
-- [X] SSH-based network device management
-- [X] Additional security hardening and verification
+- [x] SSH-based network device management
+- [x] Additional security hardening and verification
+- [ ] Data Warehouse connectivity
 
 ## Testing and Verification
 
@@ -99,14 +104,26 @@ The following Cisco IOS commands are used to verify network operation:
 | `show access-lists` | Inspect ACL rules |
 | `show port-security` | Verify switch port security |
 
-Screenshots of the topology, DHCP bindings and OSPF neighbor status are provided in the `Screenshots/` directory.
+### Verification Screenshots
+
+**DHCP Binding**
+
+![DHCP Binding](Screenshots/DHCP%20Binding.png)
+
+**OSPF Neighbor Adjacency**
+
+![OSPF Neighbor](Screenshots/OSPF%20Neighbor.png)
 
 ## Repository Structure
 
 ```text
-├── Screenshots/       # Topology and verification screenshots
-├── ciscoproject.pkt   # Cisco Packet Tracer project
-└── README.md          # Project overview and documentation
+├── Screenshots/
+│   ├── Network Topology.png
+│   ├── DHCP Binding.png
+│   ├── OSPF Neighbor.png
+│   └── .gitkeep
+├── ciscoproject.pkt
+└── README.md
 ```
 
 ## Tools
