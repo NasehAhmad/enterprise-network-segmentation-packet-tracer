@@ -1,1 +1,59 @@
-
+! R1 - Enterprise Network Router
+! Cisco Packet Tracer configuration
+!
+hostname R1
+service password-encryption
+!
+! Credentials intentionally redacted
+enable secret <REDACTED>
+username netadmin privilege 15 secret <REDACTED>
+!
+ip domain-name Ep.local
+ip ssh version 2
+!
+ip dhcp pool HR
+ network 192.168.10.0 255.255.255.192
+ default-router 192.168.10.1
+ dns-server 1.1.1.1
+!
+ip dhcp pool Sales
+ network 192.168.10.64 255.255.255.192
+ default-router 192.168.10.65
+!
+interface GigabitEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.192
+ ip access-group group-1-Isolation in
+!
+interface GigabitEthernet0/1.20
+ encapsulation dot1Q 20
+ ip address 192.168.10.65 255.255.255.192
+ ip access-group group-1-Isolation in
+!
+interface GigabitEthernet0/2
+ ip address 192.168.99.1 255.255.255.252
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ log-adjacency-changes
+ network 192.168.10.0 0.0.0.63 area 1
+ network 192.168.10.64 0.0.0.63 area 1
+ network 192.168.99.0 0.0.0.63 area 1
+!
+ip access-list extended group-1-Isolation
+ deny ip 192.168.10.0 0.0.0.127 192.168.10.128 0.0.0.127
+ permit ip any any
+!
+banner motd #No Unauthorized Access#
+!
+line console 0
+ exec-timeout 5 0
+ login local
+!
+line vty 0 4
+ exec-timeout 5 0
+ login local
+!
