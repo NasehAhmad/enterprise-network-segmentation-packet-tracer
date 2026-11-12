@@ -116,7 +116,13 @@ The following Cisco IOS commands are used to verify network operation:
 
 ## Repository Structure
 
-```text
+├── Config/
+│   ├── R1-config.txt
+│   ├── R2-config.txt
+│   ├── Sw-HR-config.txt
+│   ├── Sw-Production-config.txt
+│   ├── Sw-QA-config.txt
+│   └── Sw-Sales-config.txt
 ├── Screenshots/
 │   ├── Network Topology.png
 │   ├── DHCP Binding.png
@@ -124,7 +130,6 @@ The following Cisco IOS commands are used to verify network operation:
 │   └── .gitkeep
 ├── ciscoproject.pkt
 └── README.md
-```
 
 ## Tools
 
