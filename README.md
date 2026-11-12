@@ -115,7 +115,8 @@ The following Cisco IOS commands are used to verify network operation:
 ![OSPF Neighbor](Screenshots/OSPF%20Neighbor.png)
 
 ## Repository Structure
-
+```text
+enterprise-network-segmentation-packet-tracer/
 ├── Config/
 │   ├── R1-config.txt
 │   ├── R2-config.txt
